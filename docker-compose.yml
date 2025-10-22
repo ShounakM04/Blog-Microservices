@@ -1,5 +1,8 @@
+version: "3.9"
+
 services:
-  mongo:
+  # Auth Service Mongo
+  auth-mongo:
     image: mongo:6
     container_name: auth-mongo
     restart: always
@@ -8,8 +11,9 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - mongo-data:/data/db
+      - auth-mongo-data:/data/db
 
+  # Auth Service
   auth-service:
     build: ./services/auth
     container_name: auth-service
@@ -19,8 +23,35 @@ services:
     ports:
       - "5000:5000"
     depends_on:
-      - mongo
+      - auth-mongo
+    command: npm run dev
+
+  # Post Service Mongo
+  post-mongo:
+    image: mongo:6
+    container_name: post-mongo
+    restart: always
+    environment:
+      MONGO_INITDB_DATABASE: postService
+    ports:
+      - "27018:27017"
+    volumes:
+      - post-mongo-data:/data/db
+
+  # Post Service
+  post-service:
+    build: ./services/post
+    container_name: post-service
+    restart: always
+    env_file:
+      - ./services/post/.env
+    ports:
+      - "5001:5001"
+    depends_on:
+      - post-mongo
+      - auth-service
     command: npm run dev
 
 volumes:
-  mongo-data:
+  auth-mongo-data:
+  post-mongo-data:
