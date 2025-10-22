@@ -5,7 +5,7 @@ interface AuthRequest extends Request {
   userId?: string;
   user:string;
 }
-// Create Post
+
 export const createPost = async (req: AuthRequest, res: Response) => {
   try {
     const authorId = req.userId;
@@ -18,7 +18,6 @@ export const createPost = async (req: AuthRequest, res: Response) => {
   }
 };
 
-// Get All Posts
 export const getPosts = async (req: Request, res: Response) => {
   try {
     const posts = await Post.find();
@@ -28,7 +27,6 @@ export const getPosts = async (req: Request, res: Response) => {
   }
 };
 
-// Get Single Post
 export const getPostById = async (req: Request, res: Response) => {
   try {
     const post = await Post.findById(req.params.id);
@@ -39,7 +37,6 @@ export const getPostById = async (req: Request, res: Response) => {
   }
 };
 
-// Update Post
 export const updatePost = async (req: Request, res: Response) => {
   try {
     const post = await Post.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -50,7 +47,6 @@ export const updatePost = async (req: Request, res: Response) => {
   }
 };
 
-// Delete Post
 export const deletePost = async (req: Request, res: Response) => {
   try {
     const post = await Post.findByIdAndDelete(req.params.id);
