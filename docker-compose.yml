@@ -34,6 +34,17 @@ services:
     volumes:
       - comment-mongo-data:/data/db
 
+  like-mongo:
+    image: mongo:6
+    container_name: like-mongo
+    restart: always
+    environment:
+      MONGO_INITDB_DATABASE: likeService
+    ports:
+      - "27020:27017"
+    volumes:
+      - like-mongo-data:/data/db
+
   auth-service:
     build: ./services/auth
     container_name: auth-service
@@ -73,7 +84,22 @@ services:
       - post-service
     command: npm run dev
 
+  like-service:
+    build: ./services/like
+    container_name: like-service
+    restart: always
+    env_file:
+      - ./services/like/.env
+    ports:
+      - "5003:5003"
+    depends_on:
+      - comment-mongo
+      - auth-service
+      - post-service
+    command: npm run dev
+
 volumes:
   auth-mongo-data:
   post-mongo-data:
   comment-mongo-data:
+  like-mongo-data:
