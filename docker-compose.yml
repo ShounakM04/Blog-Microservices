@@ -98,6 +98,19 @@ services:
       - post-service
     command: npm run dev
 
+  frontend:
+    build: ./frontend
+    container_name: blog-frontend
+    restart: always
+    ports:
+      - "5173:80"
+    depends_on:
+      - auth-service
+      - post-service
+      - comment-service
+      - like-service
+
+
 volumes:
   auth-mongo-data:
   post-mongo-data:

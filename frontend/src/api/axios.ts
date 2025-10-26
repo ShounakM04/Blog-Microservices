@@ -1,9 +1,7 @@
 import axios from 'axios';
 
 const createApiClient = (baseURL: string) => {
-  const api = axios.create({
-    baseURL,
-  });
+  const api = axios.create({ baseURL });
 
   api.interceptors.request.use((config) => {
     const token = localStorage.getItem('authToken');
@@ -16,7 +14,7 @@ const createApiClient = (baseURL: string) => {
   return api;
 };
 
-export const authApi = createApiClient('http://localhost:5000/api');
-export const postApi = createApiClient('http://localhost:5001/api');
-export const commentApi = createApiClient('http://localhost:5002/api');
-export const likeApi = createApiClient('http://localhost:5003/api');
+export const authApi = createApiClient(import.meta.env.VITE_AUTH_URL);
+export const postApi = createApiClient(import.meta.env.VITE_POST_URL);
+export const commentApi = createApiClient(import.meta.env.VITE_COMMENT_URL);
+export const likeApi = createApiClient(import.meta.env.VITE_LIKE_URL);
