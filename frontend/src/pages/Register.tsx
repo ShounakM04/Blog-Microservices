@@ -16,7 +16,7 @@ const Register = () => {
     e.preventDefault();
     setError('');
     try {
-      await authApi.post('/auth/register', { name, email, password });
+      await authApi.post('/register', { name, email, password });
       navigate('/login');
     } catch (err) {
       setError('Failed to register. The email might already be in use.');

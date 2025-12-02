@@ -22,10 +22,10 @@ const PostDetail = () => {
     const fetchData = async () => {
       try {
         const [postRes, commentsRes, likeCountRes, hasLikedRes] = await Promise.all([
-          postApi.get(`/posts/${id}`),
-          commentApi.get(`/comments/post/${id}`),
-          likeApi.get(`/likes/post/${id}/count`),
-          user ? likeApi.get(`/likes/post/${id}/liked`) : Promise.resolve({ data: { liked: false } })
+          postApi.get(`/${id}`),
+          commentApi.get(`/post/${id}`),
+          likeApi.get(`/post/${id}/count`),
+          user ? likeApi.get(`/post/${id}/liked`) : Promise.resolve({ data: { liked: false } })
         ]);
         setPost(postRes.data);
         setComments(commentsRes.data);
@@ -44,10 +44,10 @@ const PostDetail = () => {
     if (!user || !id) return;
     try {
       if (hasLiked) {
-        await likeApi.delete('/likes', { data: { postId: id } });
+        await likeApi.delete('/', { data: { postId: id } });
         setLikeCount(prev => prev - 1);
       } else {
-        await likeApi.post('/likes', { postId: id });
+        await likeApi.post('/', { postId: id });
         setLikeCount(prev => prev + 1);
       }
       setHasLiked(!hasLiked);
@@ -60,7 +60,7 @@ const PostDetail = () => {
     e.preventDefault();
     if (!newComment.trim() || !id) return;
     try {
-      const response = await commentApi.post('/comments', { postId: id, content: newComment });
+      const response = await commentApi.post('/', { postId: id, content: newComment });
       setComments(prev => [response.data, ...prev]);
       setNewComment('');
     } catch (error) {

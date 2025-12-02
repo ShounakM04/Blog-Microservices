@@ -13,7 +13,7 @@ const CreatePost = () => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     try {
-      await postApi.post('/posts', { title, content });
+      await postApi.post('/', { title, content });
       navigate('/');
     } catch (err) {
       setError('Failed to create post.');

@@ -12,7 +12,7 @@ const Home = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await postApi.get('/posts');
+        const response = await postApi.get('/');
         setPosts(response.data);
       } catch (error) {
         console.error("Failed to fetch posts:", error);

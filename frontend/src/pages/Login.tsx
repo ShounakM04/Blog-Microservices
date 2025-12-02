@@ -16,7 +16,7 @@ const Login = () => {
     e.preventDefault();
     setError('');
     try {
-      const response = await authApi.post('/auth/login', { email, password });
+      const response = await authApi.post('/login', { email, password });
       login(response.data.token);
       navigate('/');
     } catch (err) {

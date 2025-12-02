@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+data:
+  AUTH_MONGO_URI: "mongodb://root:YmxvZ2FwcA==@auth-mongo:27017/authService?authSource=admin"
+  POST_MONGO_URI: "mongodb://root:YmxvZ2FwcA==@post-mongo:27017/postService?authSource=admin"
+  COMMENT_MONGO_URI: "mongodb://root:YmxvZ2FwcA==@comment-mongo:27017/commentService?authSource=admin"
+  LIKE_MONGO_URI: "mongodb://root:YmxvZ2FwcA==@like-mongo:27017/likeService?authSource=admin"
+  
+  AUTH_SERVICE_URL: "http://auth-service:5000"
+  POST_SERVICE_URL: "http://post-service:5001"
+  COMMENT_SERVICE_URL: "http://comment-service:5002"
+  LIKE_SERVICE_URL: "http://like-service:5003"
