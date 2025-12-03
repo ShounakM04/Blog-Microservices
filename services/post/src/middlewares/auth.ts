@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt, { JwtPayload } from 'jsonwebtoken';
 
-// Define the custom type for the user, if needed
 interface AuthRequest extends Request {
   userId?: string;
 }

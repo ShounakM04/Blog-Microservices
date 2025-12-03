@@ -5,7 +5,7 @@ import authMiddleware from "../middlewares/auth.js";
 const router = express.Router();
 
 router.post("/", authMiddleware, createComment);
-router.get("/post/:postId", authMiddleware, getCommentsByPost);
+router.get("/post/:postId", getCommentsByPost);
 router.put("/:id", authMiddleware, updateComment);
 router.delete("/:id", authMiddleware, deleteComment);
 

@@ -16,19 +16,19 @@ spec:
       - name: mongo
         image: mongo:6
         args: ["--bind_ip", "0.0.0.0"]
-        env:
-        - name: MONGO_INITDB_ROOT_USERNAME
-          valueFrom:
-            secretKeyRef:
-              name: app-secrets
-              key: MONGO_ROOT_USERNAME
-        - name: MONGO_INITDB_ROOT_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: app-secrets
-              key: MONGO_ROOT_PASSWORD
-        - name: MONGO_INITDB_DATABASE
-          value: authService
+        # env:
+        # - name: MONGO_INITDB_ROOT_USERNAME
+        #   valueFrom:
+        #     secretKeyRef:
+        #       name: app-secrets
+        #       key: MONGO_ROOT_USERNAME
+        # - name: MONGO_INITDB_ROOT_PASSWORD
+        #   valueFrom:
+        #     secretKeyRef:
+        #       name: app-secrets
+        #       key: MONGO_ROOT_PASSWORD
+        # - name: MONGO_INITDB_DATABASE
+        #   value: authService
         ports:
         - containerPort: 27017
         volumeMounts:
@@ -71,19 +71,19 @@ spec:
       - name: mongo
         image: mongo:6
         args: ["--bind_ip", "0.0.0.0"]
-        env:
-        - name: MONGO_INITDB_ROOT_USERNAME
-          valueFrom:
-            secretKeyRef:
-              name: app-secrets
-              key: MONGO_ROOT_USERNAME
-        - name: MONGO_INITDB_ROOT_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: app-secrets
-              key: MONGO_ROOT_PASSWORD
-        - name: MONGO_INITDB_DATABASE
-          value: postService
+        # env:
+        # - name: MONGO_INITDB_ROOT_USERNAME
+        #   valueFrom:
+        #     secretKeyRef:
+        #       name: app-secrets
+        #       key: MONGO_ROOT_USERNAME
+        # - name: MONGO_INITDB_ROOT_PASSWORD
+        #   valueFrom:
+        #     secretKeyRef:
+        #       name: app-secrets
+        #       key: MONGO_ROOT_PASSWORD
+        # - name: MONGO_INITDB_DATABASE
+        #   value: postService
         ports:
         - containerPort: 27017
         volumeMounts:
@@ -125,19 +125,19 @@ spec:
       - name: mongo
         image: mongo:6
         args: ["--bind_ip", "0.0.0.0"]
-        env:
-        - name: MONGO_INITDB_ROOT_USERNAME
-          valueFrom:
-            secretKeyRef:
-              name: app-secrets
-              key: MONGO_ROOT_USERNAME
-        - name: MONGO_INITDB_ROOT_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: app-secrets
-              key: MONGO_ROOT_PASSWORD
-        - name: MONGO_INITDB_DATABASE
-          value: likeService
+        # env:
+        # - name: MONGO_INITDB_ROOT_USERNAME
+        #   valueFrom:
+        #     secretKeyRef:
+        #       name: app-secrets
+        #       key: MONGO_ROOT_USERNAME
+        # - name: MONGO_INITDB_ROOT_PASSWORD
+        #   valueFrom:
+        #     secretKeyRef:
+        #       name: app-secrets
+        #       key: MONGO_ROOT_PASSWORD
+        # - name: MONGO_INITDB_DATABASE
+        #   value: likeService
         ports:
         - containerPort: 27017
         volumeMounts:
@@ -180,19 +180,19 @@ spec:
       - name: mongo
         image: mongo:6
         args: ["--bind_ip", "0.0.0.0"]
-        env:
-        - name: MONGO_INITDB_ROOT_USERNAME
-          valueFrom:
-            secretKeyRef:
-              name: app-secrets
-              key: MONGO_ROOT_USERNAME
-        - name: MONGO_INITDB_ROOT_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: app-secrets
-              key: MONGO_ROOT_PASSWORD
-        - name: MONGO_INITDB_DATABASE
-          value: commentService
+        # env:
+        # - name: MONGO_INITDB_ROOT_USERNAME
+        #   valueFrom:
+        #     secretKeyRef:
+        #       name: app-secrets
+        #       key: MONGO_ROOT_USERNAME
+        # - name: MONGO_INITDB_ROOT_PASSWORD
+        #   valueFrom:
+        #     secretKeyRef:
+        #       name: app-secrets
+        #       key: MONGO_ROOT_PASSWORD
+        # - name: MONGO_INITDB_DATABASE
+        #   value: commentService
         ports:
         - containerPort: 27017
         volumeMounts:
